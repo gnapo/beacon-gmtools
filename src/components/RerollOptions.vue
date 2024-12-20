@@ -19,7 +19,7 @@ const toggleOpen = () => {
 }
 
 const upgradeRarity = ref(false)
-const rerollType = ref("")
+const rerollType = ref<LootType | "">("")
 
 const cost = computed(() => {
   let costSum = (rerollType.value === '' ? 0 : 2) + (upgradeRarity.value === true ? 2 : 0)
