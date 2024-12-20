@@ -73,21 +73,18 @@ const determineRarity = (currentRarity: Rarity, upgradeRarity: boolean, slot: 1 
 }
 
 const handleReroll1 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
-  let rarity = determineRarity(lootCrates.value[0].Rarity, payload.upgradeRarity, 1);
-  let type = payload.rerollType !== "" ? payload.rerollType : getType();
-  rerollSlot1(() => {return getLootOfType(type, rarity)})
+  let currentRarity = lootCrates.value[0].Rarity;
+  rerollSlot1(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 1))})
 }
 
 const handleReroll2 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
-  let rarity = determineRarity(lootCrates.value[1].Rarity, payload.upgradeRarity, 2);
-  let type = payload.rerollType !== "" ? payload.rerollType : getType();
-  rerollSlot2(() => {return getLootOfType(type, rarity)})
+  let currentRarity = lootCrates.value[1].Rarity;
+  rerollSlot2(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 2))})
 }
 
 const handleReroll3 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
-  let rarity = determineRarity(lootCrates.value[2].Rarity, payload.upgradeRarity, 3);
-  let type = payload.rerollType !== "" ? payload.rerollType : getType();
-  rerollSlot3(() => {return getLootOfType(type, rarity)})
+  let currentRarity = lootCrates.value[2].Rarity;
+  rerollSlot3(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 3))})
 }
 
 
