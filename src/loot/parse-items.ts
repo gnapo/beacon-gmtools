@@ -59,4 +59,12 @@ export const uncommonWeapons = allWeapons.filter((i) => i.Rarity === 'uncommon')
 export const rareWeapons = allWeapons.filter((i) => i.Rarity === 'rare')
 export const legendaryWeapons = allWeapons.filter((i) => i.Rarity === 'legendary')
 
+export const idsAreValid = (ids: number[]): boolean => {
+  return ids.length === 3 && ids.every(n => {
+    return 0 <= n && n < allItems.length
+  });
+}
 
+export const findLoot = (id: number): Loot | undefined => {
+  return allItems.filter(item => item.id === id)[0]
+}

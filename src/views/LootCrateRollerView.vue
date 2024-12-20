@@ -17,11 +17,16 @@ import type {Loot, LootType, Rarity} from "@/loot/types.ts";
 import {callWithVaryingFrequency} from "@/util/intervalUtil.ts";
 import LootSelector from "@/components/LootSelector.vue";
 import {settings} from "@/settings/settings.ts";
+import {useRoute} from "vue-router";
+import {useClipboard} from "@vueuse/core";
+import {findLoot, idsAreValid} from "@/loot/parse-items.ts";
 
 const lootCrates = ref(getLootCrates())
-
 const animations = ref(true)
 
+const route = useRoute()
+
+const { copy } = useClipboard()
 const shaking = ref([0,0,0])
 const snapping = ref([0,0,0])
 
@@ -36,21 +41,27 @@ function getDefaultRandomSource(slot: 1 | 2 | 3): () => Loot  {
   }
 }
 
-async function rerollSlot(slot: 1 | 2 | 3, randomSource?: () => Loot ) {
-  const spinDuration = 1500 + slot * 500
+async function rerollSlot(slot: 1 | 2 | 3, randomSource?: () => Loot, forcedLoot?: Loot ) {
+  const spinDuration = 1500 + slot * 500 - ((forcedLoot === undefined) ? 0 : 100)
   const source = randomSource ?? getDefaultRandomSource(slot)
   if (animations.value) {
     shaking.value[slot-1] += 1
     setTimeout(() => snapping.value[slot-1] += 1, spinDuration)
+    if (forcedLoot !== undefined) {
+      setTimeout(() => {lootCrates.value[slot-1] = forcedLoot}, spinDuration + 100)
+    }
     await callWithVaryingFrequency(() => {lootCrates.value[slot-1] = source()}, spinDuration)
   } else {
-    lootCrates.value[slot-1] = source()
+    if (forcedLoot !== undefined) {
+      lootCrates.value[slot-1] = forcedLoot
+    } else {
+      lootCrates.value[slot-1] = source()
+    }
   }
 }
 
 const determineRarity = (currentRarity: Rarity, upgradeRarity: boolean, slot: 1 | 2 | 3): Rarity => {
   if (upgradeRarity) {
-    console.log('currentRarity: ',currentRarity)
     switch (currentRarity) {
       case "uncommon":
         return "rare"
@@ -92,12 +103,33 @@ const rerollAll = async () => {
   ])
 }
 
-rerollAll();
+
+const copyToClipboardText = ref('Link these boxes 📋')
+const copyCurrentItemsToClipboard = () => {
+  copy(  window.location.origin + window.location.pathname+'?items='+btoa(lootCrates.value.map(x => x.id).join(',')))
+  copyToClipboardText.value = "copied to clipboard ✔️"
+  setTimeout(() => {copyToClipboardText.value = 'Link these boxes 📋'}, 2000)
+}
+if (route.query.items) {
+  const items = atob(route.query.items as string).split(',').map(i => parseInt(i))
+  if (idsAreValid(items)) {
+    rerollSlot(1, undefined, findLoot(items[0]))
+    rerollSlot(2, undefined, findLoot(items[1]))
+    rerollSlot(3, undefined, findLoot(items[2]))
+  } else {
+    rerollAll()
+  }
+} else {
+  rerollAll();
+}
 </script>
 
 <template>
 <div class="container">
-  <button @click="rerollAll">Reroll all!</button>
+  <div class="buttons">
+    <button @click="rerollAll">Reroll all!</button>
+    <button @click="copyCurrentItemsToClipboard" v-if="settings.gmView"> {{copyToClipboardText}} </button>
+  </div>
   <div class="item-grid">
     <LootSelector v-model=lootCrates[0] v-if="settings.gmView"/>
     <LootSelector v-model=lootCrates[1] v-if="settings.gmView"/>
@@ -128,5 +160,12 @@ rerollAll();
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2px 2rem;
+}
+.buttons {
+  display: flex;
+  gap: 1rem;
+  button {
+    width: 150px;
+  }
 }
 </style>
