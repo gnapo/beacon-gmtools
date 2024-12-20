@@ -15,6 +15,8 @@ import {
 import RerollOptions from "@/components/RerollOptions.vue";
 import type {Loot, LootType, Rarity} from "@/loot/types.ts";
 import {callWithVaryingFrequency} from "@/util/intervalUtil.ts";
+import LootSelector from "@/components/LootSelector.vue";
+import {settings} from "@/settings/settings.ts";
 
 const lootCrates = ref(getLootCrates())
 
@@ -101,6 +103,9 @@ rerollAll();
 <div class="container">
   <button @click="rerollAll">Reroll all!</button>
   <div class="item-grid">
+    <LootSelector v-model=lootCrates[0] v-if="settings.gmView"/>
+    <LootSelector v-model=lootCrates[1] v-if="settings.gmView"/>
+    <LootSelector v-model=lootCrates[2] v-if="settings.gmView"/>
     <RerollOptions @reroll="handleReroll1" :current-rarity=lootCrates[0].Rarity />
     <RerollOptions @reroll="handleReroll2" :current-rarity=lootCrates[1].Rarity />
     <RerollOptions @reroll="handleReroll3" :current-rarity=lootCrates[2].Rarity />

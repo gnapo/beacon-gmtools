@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import OptionsMenu from "@/components/OptionsMenu.vue";
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
   </header>
 
+  <OptionsMenu />
   <RouterView />
 </template>
 
