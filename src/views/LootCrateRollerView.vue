@@ -25,32 +25,26 @@ const animations = ref(true)
 const shaking = ref([0,0,0])
 const snapping = ref([0,0,0])
 
-async function rerollSlot1(randomSource: () => Loot = getLootCrateSlot1) {
-  if (animations.value) {
-    shaking.value[0] += 1
-    setTimeout(() => {snapping.value[0] += 1}, 2000)
-    await callWithVaryingFrequency(() => {lootCrates.value[0] = randomSource()}, 2000)
-  } else {
-    lootCrates.value[0] = randomSource()
+function getDefaultRandomSource(slot: 1 | 2 | 3): () => Loot  {
+  switch (slot) {
+    case 1:
+      return getLootCrateSlot1
+    case 2:
+      return getLootCrateSlot2
+    case 3:
+      return getLootCrateSlot3
   }
 }
 
-async function rerollSlot2(randomSource: () => Loot = getLootCrateSlot2) {
+async function rerollSlot(slot: 1 | 2 | 3, randomSource?: () => Loot ) {
+  const spinDuration = 1500 + slot * 500
+  const source = randomSource ?? getDefaultRandomSource(slot)
   if (animations.value) {
-  shaking.value[1] += 1
-  setTimeout(() => {snapping.value[1] += 1}, 2500)
-  await callWithVaryingFrequency(() => {lootCrates.value[1] = randomSource()}, 2500)
+    shaking.value[slot-1] += 1
+    setTimeout(() => snapping.value[slot-1] += 1, spinDuration)
+    await callWithVaryingFrequency(() => {lootCrates.value[slot-1] = source()}, spinDuration)
   } else {
-    lootCrates.value[1] = randomSource()
-  }
-}
-async function rerollSlot3(randomSource: () => Loot = getLootCrateSlot3) {
-  if (animations.value) {
-  shaking.value[2] += 1
-  setTimeout(() => {snapping.value[2] += 1}, 3000)
-  await callWithVaryingFrequency(() => {lootCrates.value[2] = randomSource()}, 3000)
-  } else {
-    lootCrates.value[2] = randomSource()
+    lootCrates.value[slot-1] = source()
   }
 }
 
@@ -76,24 +70,26 @@ const determineRarity = (currentRarity: Rarity, upgradeRarity: boolean, slot: 1 
 
 const handleReroll1 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
   let currentRarity = lootCrates.value[0].Rarity;
-  rerollSlot1(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 1))})
+  rerollSlot(1,() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 1))})
 }
 
 const handleReroll2 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
   let currentRarity = lootCrates.value[1].Rarity;
-  rerollSlot2(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 2))})
+  rerollSlot(2,() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 2))})
 }
 
 const handleReroll3 = (payload: {rerollType: LootType | "", upgradeRarity: boolean}) => {
   let currentRarity = lootCrates.value[2].Rarity;
-  rerollSlot3(() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 3))})
+  rerollSlot(3,() => {return getLootOfType(payload.rerollType !== "" ? payload.rerollType : getType(), determineRarity(currentRarity, payload.upgradeRarity, 3))})
 }
 
 
 const rerollAll = async () => {
-  rerollSlot1()
-  rerollSlot2()
-  rerollSlot3()
+  await Promise.all([
+    rerollSlot(1),
+    rerollSlot(2),
+    rerollSlot(3)
+  ])
 }
 
 rerollAll();

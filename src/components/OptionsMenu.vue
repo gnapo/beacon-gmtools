@@ -38,7 +38,7 @@ const toggleMenu = () => {
   left: 2.7rem;
   top: 2.7rem;
   width: 0;
-  height: 0px;
+  height: 0;
   background-color: #646570;
   border-radius: 3px;
   border: #7e7d7d 1px solid;
