@@ -56,7 +56,7 @@ const snapping = ref(false)
   color: white;
 }
 .uncommon {
-  text-shadow: 0px 0px 20px #25CE40,
+  text-shadow: 0 0 20px #25CE40,
     1px 1px 0 #000,
     -1px 1px 0 #000,
     -1px -1px 0 #000,
@@ -64,8 +64,8 @@ const snapping = ref(false)
 }
 .rare {
 
-  text-shadow: 0px 0px 20px #687eef,
-  0px 0px 20px #687eef,
+  text-shadow: 0 0 20px #687eef,
+  0 0 20px #687eef,
   1px 1px 0 #000,
   -1px 1px 0 #000,
   -1px -1px 0 #000,
@@ -73,7 +73,7 @@ const snapping = ref(false)
 }
 .legendary {
 
-  text-shadow: 0px 0px 20px #e8811d,
+  text-shadow: 0 0 20px #e8811d,
   1px 1px 0 #000,
   -1px 1px 0 #000,
   -1px -1px 0 #000,
