@@ -17,18 +17,11 @@ const getNextId = ():number => {
   return idIterator++
 }
 
-const actionTypeExceptions: Map<string, ActionType> = new Map<string, ActionType>([
-  ['Mithral thingie', "action"]
-])
-
 
 const determineActionType = (item: LootRaw): ActionType => {
   const normalizedAction = removeSingleDash(item.Action)
   if (item.Type === 'Weapon') {
     return 'attack'
-  }
-  if (actionTypeExceptions.has(item.Name)) {
-    return actionTypeExceptions.get(item.Name) as ActionType
   }
   if (normalizedAction == '') {
     return 'passive'
