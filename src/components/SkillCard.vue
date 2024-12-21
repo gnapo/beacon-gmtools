@@ -3,6 +3,7 @@ import type {Loot} from "@/loot/types.ts";
 import LootTags from "@/components/LootTags.vue";
 import WhitePill from "@/components/WhitePill.vue";
 import ActionTypeLabel from "@/components/ActionTypeLabel.vue";
+import DescriptionText from "@/components/DescriptionText.vue";
 
 const props = defineProps<{
   item: Loot
@@ -26,7 +27,7 @@ const props = defineProps<{
       </div>
     </div>
     <div class="card-bot skill-bot" >
-      {{ item.Desc }}
+      <DescriptionText :input-text="item.Desc"/>
     </div>
   </div>
 </template>
@@ -38,4 +39,10 @@ const props = defineProps<{
 
 .skill-bot {
   background-color: #eaf2f1;
+  :deep(.colored-pill), :deep(.phase-number-descr) {
+    background-color: #49aba8;
+  }
+  :deep(.colored-text) {
+    color: #49aba8;
+  }
 }</style>

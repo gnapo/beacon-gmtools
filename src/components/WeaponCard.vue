@@ -5,6 +5,7 @@ import {computed} from "vue";
 import LootTags from "@/components/LootTags.vue";
 import WhitePill from "@/components/WhitePill.vue";
 import ActionTypeLabel from "@/components/ActionTypeLabel.vue";
+import DescriptionText from "@/components/DescriptionText.vue";
 
 const props = defineProps<{
   item: Loot
@@ -35,7 +36,7 @@ const weaponType = computed(() => {
       </div>
     </div>
     <div class="card-bot weapon-bot" >
-      {{ item.Desc }}
+      <DescriptionText :input-text="item.Desc"/>
     </div>
   </div>
 </template>
@@ -49,6 +50,11 @@ const weaponType = computed(() => {
 
 .weapon-bot {
   background-color: #dbd9e2;
-
+  :deep(.colored-pill), :deep(.phase-number-descr) {
+    background-color: #232d62;
+  }
+  :deep(.colored-text) {
+    color: #232d62;
+  }
 }
 </style>

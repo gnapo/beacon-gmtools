@@ -23,6 +23,14 @@
   font-weight: bold;
 }
 
+.phase-number-descr {
+  clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%);
+  color: white;
+  padding: 0 0.2rem;
+  mix-blend-mode: darken;
+  font-weight: bold;
+}
+
 .item-name {
   font-size: 1.1rem;
   font-family: "Arvo", serif;
@@ -87,4 +95,28 @@
 
 .attack-action {
   clip-path: polygon(0 0, 430px 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+.accuracy {
+  background-color: #242e62;
+  clip-path: polygon(10% 30%, 50% 10%, 90% 30%, 90% 80%, 50% 100%, 10% 80%);
+  color: white;
+  padding: 0 0.2rem;
+  font-weight: bold;
+}
+
+.colored-pill {
+
+  color: white;
+  padding: 0 0.5rem;
+  margin-left: 0.25rem;
+  border-radius: 100px;
+}
+.slightly-bigger {
+  font-size: 1.07rem;
 }
