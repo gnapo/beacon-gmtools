@@ -11,7 +11,7 @@ const transformedContent = computed(() => {
 </script>
 
 <template>
-<b v-html="transformedContent" />
+<b v-html="transformedContent" class="literata-sc"/>
 </template>
 
 <style scoped>

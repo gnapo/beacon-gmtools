@@ -24,7 +24,7 @@ const weaponType = computed(() => {
       <div class="flexrow-title" >
         <p class="item-name"> {{ item.Name }} </p> <ActionTypeLabel :action-text="item.Action" />
       </div>
-      <div class="flexrow" >
+      <div class="flexrow literata-sc" >
         {{ weaponType }} Weapon ✦ {{item.Size}} {{item.Type2}} &nbsp; <LootTags :tags=item.Tags />
         <WhitePill>
           {{item["Range/reach"]}}

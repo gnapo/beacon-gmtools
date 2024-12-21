@@ -16,7 +16,7 @@ const props = defineProps<{
       <div class="flexrow-title" >
         <p class="item-name"> {{ item.Name }} </p> <ActionTypeLabel :action-text="item.Action" />
       </div>
-      <div class="flexrow" >
+      <div class="flexrow literata-sc" >
         Support Item ✦ {{item.Size}} &nbsp; <LootTags :tags=item.Tags />
         <WhitePill v-if="item['Range/reach'] !== ''">
           {{item["Range/reach"]}}

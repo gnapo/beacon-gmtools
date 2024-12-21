@@ -1,0 +1,14 @@
+.arvo-regular {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.literata-sc {
+    font-family: "Literata", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variant: small-caps;
+}
