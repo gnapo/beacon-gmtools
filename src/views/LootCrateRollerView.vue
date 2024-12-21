@@ -44,7 +44,7 @@ function getDefaultRandomSource(slot: 1 | 2 | 3): () => Loot  {
 async function rerollSlot(slot: 1 | 2 | 3, randomSource?: () => Loot, forcedLoot?: Loot ) {
   const spinDuration = 1500 + slot * 500 - ((forcedLoot === undefined) ? 0 : 100)
   const source = randomSource ?? getDefaultRandomSource(slot)
-  if (animations.value) {
+  if (settings.value.animations) {
     shaking.value[slot-1] += 1
     setTimeout(() => snapping.value[slot-1] += 1, spinDuration)
     if (forcedLoot !== undefined) {

@@ -16,6 +16,7 @@ const toggleMenu = () => {
   <div class="options-menu" :class="{'opened': settingsOpen}">
     <div class="options">
       <span> <input type="checkbox" v-model="settings.gmView" class="pointer"> <label class="pointer" @click="settings.gmView = !settings.gmView">GM view</label></span>
+      <span> <input type="checkbox" v-model="settings.animations" class="pointer"> <label class="pointer" @click="settings.animations = !settings.animations">Enable animations</label></span>
     </div>
   </div>
   <div class="options-button">
@@ -50,8 +51,8 @@ const toggleMenu = () => {
   &.opened {
     left: 1.75rem;
     top: 1.75rem;
-    width: 150px;
-    height: 50px;
+    width: 210px;
+    height: 70px;
   }
 }
 .options {
