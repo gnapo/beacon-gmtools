@@ -1,6 +1,6 @@
 import Papa from 'papaparse';
 import {allItemsCsv} from "@/loot/all-loot.ts";
-import type {Loot, LootRaw, Rarity} from "@/loot/types.ts";
+import type {ActionType, Loot, LootRaw, Rarity} from "@/loot/types.ts";
 
 export const itemParseResult = Papa.parse(allItemsCsv, {header: true})
 
@@ -17,6 +17,34 @@ const getNextId = ():number => {
   return idIterator++
 }
 
+const actionTypeExceptions: Map<string, ActionType> = new Map<string, ActionType>([
+  ['Mithral thingie', "action"]
+])
+
+
+const determineActionType = (item: LootRaw): ActionType => {
+  const normalizedAction = removeSingleDash(item.Action)
+  if (item.Type === 'Weapon') {
+    return 'attack'
+  }
+  if (actionTypeExceptions.has(item.Name)) {
+    return actionTypeExceptions.get(item.Name) as ActionType
+  }
+  if (normalizedAction == '') {
+    return 'passive'
+  }
+  if (normalizedAction.includes('Action')) {
+    return 'action'
+  }
+  if (normalizedAction.includes('Reaction')) {
+    return 'reaction'
+  }
+  if (removeSingleDash(item.Damage) !== '') {
+    return 'attack'
+  }
+  return 'action'
+}
+
 const sanitizeLoot = (input: LootRaw):Loot => {
   return {
     id: getNextId(),
@@ -27,6 +55,7 @@ const sanitizeLoot = (input: LootRaw):Loot => {
     Type2: input.Type2,
     MEM: input.MEM,
     Action: removeSingleDash(input.Action),
+    actionType: determineActionType(input),
     Tags: removeSingleDash(input.Tags),
     "Range/reach": formatRange(input["Range/reach"]),
     Damage: removeSingleDash(input.Damage),

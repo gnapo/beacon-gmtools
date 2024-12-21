@@ -15,7 +15,10 @@ export interface LootRaw {
 }
 export interface Loot extends LootRaw {
   id: number
+  actionType: ActionType
 }
+
 
 export type Rarity = 'uncommon' | 'rare' | 'legendary'
 export type LootType = 'Weapon' | 'Spell' | 'Support' | 'Skill'
+export type ActionType = 'action' | 'passive' | 'reaction' | 'attack'

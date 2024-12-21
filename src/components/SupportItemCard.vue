@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <template>
   <div class="card-flexcol">
-    <div class="card-top support-top" :class="{'passive-ability': item.Action === '', 'action': item.Action.includes('Action'), 'reaction': item.Action.includes('Reaction') }" >
+    <div class="card-top support-top" :class="{'passive-ability': item.actionType === 'passive', 'action': item.actionType === 'action', 'reaction': item.actionType === 'reaction', 'attack-action': item.actionType === 'attack' }" >
       <div class="flexrow-title" >
         <p class="item-name"> {{ item.Name }} </p> <ActionTypeLabel :action-text="item.Action" />
       </div>
