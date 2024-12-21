@@ -2,6 +2,7 @@
 import type {Loot} from "@/loot/types.ts";
 import LootTags from "@/components/LootTags.vue";
 import WhitePill from "@/components/WhitePill.vue";
+import ActionTypeLabel from "@/components/ActionTypeLabel.vue";
 
 const props = defineProps<{
   item: Loot
@@ -12,7 +13,7 @@ const props = defineProps<{
   <div class="card-flexcol">
     <div class="card-top skill-top" :class="{'passive-ability': item.Action === '', 'action': item.Action.includes('Action'), 'reaction': item.Action.includes('Reaction'), 'attack-action': item.Damage !== '' }" >
       <div class="flexrow-title" >
-        <p class="item-name"> {{ item.Name }} </p> <b>{{item.Action}} </b>
+        <p class="item-name"> {{ item.Name }} </p> <ActionTypeLabel :action-text="item.Action" />
       </div>
       <div class="flexrow" >
         Skill ✦ {{item.MEM}} Memory &nbsp; <LootTags :tags=item.Tags />

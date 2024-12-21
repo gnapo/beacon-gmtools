@@ -1,20 +1,15 @@
 <script setup lang="ts">
 
-import PhaseNumber from "@/components/PhaseNumber.vue";
 import type {Loot} from "@/loot/types.ts";
 import {computed} from "vue";
 import LootTags from "@/components/LootTags.vue";
 import WhitePill from "@/components/WhitePill.vue";
+import ActionTypeLabel from "@/components/ActionTypeLabel.vue";
 
 const props = defineProps<{
   item: Loot
 }>()
-const phaseNumber = computed(() => {
-  return props.item.Action.charAt(1)
-})
-const phaseText = computed(() => {
-  return props.item.Action.substring(4)
-})
+
 const weaponType = computed(() => {
   if (props.item["Range/reach"].includes("Range") || props.item["Range/reach"].includes("Line")) {
     return 'Ranged'
@@ -27,8 +22,7 @@ const weaponType = computed(() => {
   <div class="card-flexcol">
     <div class="card-top weapon-top attack-action" >
       <div class="flexrow-title" >
-        <p class="item-name"> {{ item.Name }} </p> <b><PhaseNumber>{{phaseNumber}}</PhaseNumber>
-        {{ phaseText }} </b>
+        <p class="item-name"> {{ item.Name }} </p> <ActionTypeLabel :action-text="item.Action" />
       </div>
       <div class="flexrow" >
         {{ weaponType }} Weapon ✦ {{item.Size}} {{item.Type2}} &nbsp; <LootTags :tags=item.Tags />
