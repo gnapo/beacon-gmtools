@@ -80,17 +80,6 @@ const snapping = ref(false)
   1px -1px 0 #000;
 }
 
-.item-name {
-  font-size: 1.1rem;
-}
-
-.card-flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  width: 450px;
-}
 
 .card-container {
   display: flex;
@@ -99,58 +88,6 @@ const snapping = ref(false)
   align-items: center;
   transition: transform 0.3s ease-in-out;
 }
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.flexrow-title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-bottom: 0.25rem;
-
-  b {
-    padding-right: 1.5rem;
-  }
-}
-
-.card-top {
-  color: white;
-  padding-top: 0.25rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-bottom: 0.45rem;
-  width: 450px;
-
-}
-
-.card-bot {
-  color: black;
-  padding-left: 0.25rem;
-  width: 450px;
-
-}
-
-.action {
-  clip-path: polygon(0 0, 430px 0, 431px 6px, 433px 11px, 436px 14px, 439px 17px, 444px 19px, 100% 20px, 100% 100px, 0 100px);
-}
-
-.passive-ability {
-  border-top-right-radius: 20px;
-}
-
-.reaction {
-  clip-path: polygon(0 0, 429px 0, 429px 14px, 443px 14px, 443px 7px, 436px 7px, 436px 21px, 100% 21px, 100% 100px, 0 100px);
-}
-
-.attack-action {
-  clip-path: polygon(0 0, 430px 0, 100% 20px, 100% 100%, 0 100%);
-}
-
 
 .shake {
   animation: shake 0.5s linear;
