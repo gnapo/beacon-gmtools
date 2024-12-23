@@ -85,10 +85,11 @@ const getCostByRarity = (rarity: Rarity): string => {
 }
 .shop-titlebar {
   padding: 0.75rem 0.5rem;
-  background-color: #253db3;
+  background-color: #242e62;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: white;
 }
 .shop-name {
   font-family: "Arvo", serif;
@@ -119,7 +120,6 @@ const getCostByRarity = (rarity: Rarity): string => {
 .technique-item {
   display: flex;
   flex-direction: column;
-  text-align: center;
 
 }
 .technique-cost {
@@ -129,5 +129,6 @@ const getCostByRarity = (rarity: Rarity): string => {
   font-weight: 500;
   font-style: normal;
   font-variant: small-caps;
+  text-align: center;
 }
 </style>

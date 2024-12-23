@@ -1,3 +1,7 @@
+//manual alterations:
+//removed square brackets around [SUPPORT], these should not be rendered as pills
+//Dynamite: closed the square brackets around Blast pills
+//added parentheses around phase numbers (4)
 export const allShopsCsv = `Source,Name,Cost,Effect,,,,GENERAL STORE,ALCHEMY,BLACKSMITH,LEATHERWORKER / CLOTHIER,ENGINEER,TAVERN,MAGIC SHOP,DOJO
 GENERAL STORE,Compass,1 Gold,You have +1 ACC on skill checks to navigate this quest.,,,,Compass,Acid,Adamantine Plating,Ammo Pouch,Arcane Focus,Appetizers,Ember,Pincer Strike
 GENERAL STORE,Holster,2 Gold,You gain an extra LIGHT weapon slot.,,,,Holster,Alchemist’s Fire,Adaptative Armor,Archmage Cloak,Arcane Retrofit,Bubble Tea,Empowered Spells,Whirlwind
@@ -10,12 +14,12 @@ GENERAL STORE,Treasure Map,1 Gold,"1/quest at the start of a combat scene, expen
 GENERAL STORE,Tutor,X Gold,Gain a technique from a class. It still needs to be equipped as normal. The cost of the technique is equal to the class level required to unlock it.,,,,Tutor,Displacer Flask,Handle,Dragonstrike Gloves,Composite Construction,Gillyell,Astral Projection,Unyielding
 GENERAL STORE,Water Skin,1 Gold,1/quest you can clear Stress equal to your BREAKING value as a Minor Action.,,,,Water Skin,Elixir of Agility,Helmet,Explosive Ammunition,Crawling Mines,Ginger Tea,Golden Carp,Battle Chant
 GENERAL STORE,Well Stocked,1 Gold,Gain +1 Recovery this quest.,,,,Well Stocked,Elixir of Fortitude,Links,Fine Clothing,Dynamite,Grilled Salmon,Ground Pounder,Slam
-ALCHEMY,Acid,1 Gold,"You gain the Acid support item this quest. [SUPPORT] Main | Minor, Consumable 3, Innate, Thrown 5. On Hit: Target is SUNDERED until the end of their next turn.",,,,,Elixir of Magic,Lock,Focus Band,Echo Weapon,Grog,Lava Lob,Reckless Swing
-ALCHEMY,Alchemist’s Fire,1 Gold,"You gain the Alchemist’s Fire support item this quest. [SUPPORT] Light | Minor, Consumable 3, Innate, Thrown 5. On Hit: [1 Discord]",,,,,Elixir of Strength,Lockpick,Frostfur Lining,Environmental Integration,Hard Bread,Lightburst Summon,Regeneration
+ALCHEMY,Acid,1 Gold,"You gain the Acid support item this quest. SUPPORT Main | Minor, Consumable 3, Innate, Thrown 5. On Hit: Target is SUNDERED until the end of their next turn.",,,,,Elixir of Magic,Lock,Focus Band,Echo Weapon,Grog,Lava Lob,Reckless Swing
+ALCHEMY,Alchemist’s Fire,1 Gold,"You gain the Alchemist’s Fire support item this quest. SUPPORT Light | Minor, Consumable 3, Innate, Thrown 5. On Hit: [1 Discord]",,,,,Elixir of Strength,Lockpick,Frostfur Lining,Environmental Integration,Hard Bread,Lightburst Summon,Regeneration
 ALCHEMY,Antitoxin,1 Gold,1/quest you can clear all your Discord as a Free Action.,,,,,Elixir of Wisdom,Manacles,Gem Studded Belt,Flight Systems,Hero’s Feast,Frost Bolt,Restful Presence
 ALCHEMY,Astral Potion,1 Gold,1/quest at the start of a combat scene you gain Resistance to Astral damage until the end of that scene.,,,,,Empyrean Flask,Mithral Plating,Handwraps,Gadget Goggles,Honey Walleye,Frost Lance,Radar
 ALCHEMY,Barkskin Potion,1 Gold,1/quest at the start of a combat scene you gain Resistance to Physical damage until the end of that scene.,,,,,Flask of Life,Perfectly Balance,Lava Tunic,Grapple Gun,Hot Cocoa,Vampiric Touch,Titan Grip
-ALCHEMY,Catseye Elixir,2 Gold,You can 3 SEARCH as a Minor Action for 1 Stress this quest.,,,,,Force Potion,Portable Wall,Leather Kit,Hydraulic Suit,Jungle Jelly,Hexbolt,Bloodthirst
+ALCHEMY,Catseye Elixir,2 Gold,You can (3) SEARCH as a Minor Action for 1 Stress this quest.,,,,,Force Potion,Portable Wall,Leather Kit,Hydraulic Suit,Jungle Jelly,Hexbolt,Bloodthirst
 ALCHEMY,Crystal Flasks,1 Gold,One piece of equipment with the Consumable tag gains +1 charge this quest.,,,,,Invisibility Potion,Reinforced,Polar Tunic,Jetpack,Leftovers,Banish,Distracting Strike
 ALCHEMY,Diamond Flasks,3 Gold,All of your equipment with the Consumable tag gains +1 charge this quest.,,,,,Lunar Potion,Repair Kit,Prismatic Armor,Job Crystal,Lucky Lollipop,Baleful Polymorph,Exploding Heart
 ALCHEMY,Displacer Flask,3 Gold,Gain +2 AGILITY this quest.,,,,,Memory Potion,Sharpened,Raptor Hide Boots,Mech Suit,Mac & Cheese,Hold,Guard Break
@@ -42,7 +46,7 @@ ALCHEMY,Water Breathing Potion,1 Gold,You gain a Water Adaptation this quest.,,,
 BLACKSMITH,Adamantine Plating,2 Gold,"1/quest when one of your weapons or support items would be destroyed, they aren’t.",,,,,,,,,,Energy Shield,Distraction
 BLACKSMITH,Adaptative Armor,1 Gold,Gain an adaptation to an environmental hazard or factor this quest.,,,,,,,,,,Retribution Shield,Taunt
 BLACKSMITH,Armor Kit,1 Gold,1/quest at the start of a combat scene gain +1 armor (to a max of 4).,,,,,,,,,,Wind Infusion,Quick Hide
-BLACKSMITH,Armor Spikes,1 Gold,"You deal [1 Piercing] when you hit with a 5 GRAPPLE, 5 SHOVE, or improvised attack.",,,,,,,,,,Astral Infusion,Spectral Dash
+BLACKSMITH,Armor Spikes,1 Gold,"You deal [1 Piercing] when you hit with a (5) GRAPPLE, (5) SHOVE, or improvised attack.",,,,,,,,,,Astral Infusion,Spectral Dash
 BLACKSMITH,Buckler,1 Gold,Start each combat scene with 1 Focus.,,,,,,,,,,Lunar Infusion,Quick Rush
 BLACKSMITH,Cold Iron Ore,1 Gold,"This quest, one of your weapons that deals Physical, Force, or Astral damage deals Lunar damage instead.",,,,,,,,,,Push to the Edge,Safe Travels
 BLACKSMITH,Counterweight,2 Gold,One of your melee weapons changes its type to club.,,,,,,,,,,,Feral Instincts
@@ -52,7 +56,7 @@ BLACKSMITH,Helmet,1 Gold,"1/quest when you would become DAZED, you aren’t.",,,
 BLACKSMITH,Links,3 Gold,One of your LIGHT weapon slots becomes LIGHT / LIGHT,,,,,,,,,,,Perfect Accuracy
 BLACKSMITH,Lock,1 Gold,"As a Free Action while adjacent to a chest, door, or other object that can be locked, you can lock it. Enemies have +1 DIF to unlock it.",,,,,,,,,,,Improved Interpose
 BLACKSMITH,Lockpick,1 Gold,1/quest you can automatically unlock a lock as a Free Action.,,,,,,,,,,,Water Walking
-BLACKSMITH,Manacles,1 Gold,"1/quest when you 5 GRAPPLE a target, they are DISARMED until the grapple ends.",,,,,,,,,,,Thrust
+BLACKSMITH,Manacles,1 Gold,"1/quest when you (5) GRAPPLE a target, they are DISARMED until the grapple ends.",,,,,,,,,,,Thrust
 BLACKSMITH,Mithral Plating,2 Gold,"Choose one of your weapons. When you use the REROLL TABLE to reroll an attack with that weapon, the reroll gains +1 ACC.",,,,,,,,,,,Paragon
 BLACKSMITH,Perfectly Balance,2 Gold,One of your weapons gains Reliable 2 this quest.,,,,,,,,,,,Rage Caster
 BLACKSMITH,Portable Wall,1 Gold,1/quest as a Minor Action you can place down a Size 2 piece of Hard Cover.,,,,,,,,,,,Flash Step
@@ -86,9 +90,9 @@ LEATHERWORKER / CLOTHIER,Leather Kit,1 Gold,1/quest at the start of a combat sce
 LEATHERWORKER / CLOTHIER,Polar Tunic,2 Gold,"1/quest at the start of a combat scene, you become immune to Lunar damage until the end of the scene.",,,,,,,,,,,Third Wind
 LEATHERWORKER / CLOTHIER,Prismatic Armor,2 Gold,"At the start of each combat scene, randomly gain resistance to either Physical, Astral, Lunar, or Force damage.",,,,,,,,,,,Heroic Leap
 LEATHERWORKER / CLOTHIER,Raptor Hide Boots,2 Gold,Gain +1 Speed this quest.,,,,,,,,,,,Ghost Fist
-LEATHERWORKER / CLOTHIER,Reins,3 Gold,"You gain a mount this quest, which counts as an NPC. The mount’s size is 1 larger than your Size, has HP equal to your BLOODIED value, 0 Armor, 8 DODGE/A-DEF, and SPEED 4. The mount can carry 1 character at a time that is smaller than it. The mount moves during 4 REPOSITION, and can only use their standard movement and 4 RUSH. If the mount is reduced to 0 HP, it is defeated. You can spend 1 of your recoveries to restore all the mount’s HP during a SHORT REST.",,,,,,,,,,,Endless Stamina
+LEATHERWORKER / CLOTHIER,Reins,3 Gold,"You gain a mount this quest, which counts as an NPC. The mount’s size is 1 larger than your Size, has HP equal to your BLOODIED value, 0 Armor, 8 DODGE/A-DEF, and SPEED 4. The mount can carry 1 character at a time that is smaller than it. The mount moves during (4) REPOSITION, and can only use their standard movement and (4) RUSH. If the mount is reduced to 0 HP, it is defeated. You can spend 1 of your recoveries to restore all the mount’s HP during a SHORT REST.",,,,,,,,,,,Endless Stamina
 LEATHERWORKER / CLOTHIER,Runecloth Backpack,5 Gold,You gain an extra HEAVY Support slot.,,,,,,,,,,,Multitasker
-LEATHERWORKER / CLOTHIER,Shadowcloak Armor,1 Gold,1/quest you can 4 HIDE as a Free Action.,,,,,,,,,,,Heavy Draw
+LEATHERWORKER / CLOTHIER,Shadowcloak Armor,1 Gold,1/quest you can (4) HIDE as a Free Action.,,,,,,,,,,,Heavy Draw
 LEATHERWORKER / CLOTHIER,Spellstrike Gloves,2 Gold,"You score a critical hit on spell attack rolls of 19+, instead of 20+.",,,,,,,,,,,Heaven Piercing Fang
 LEATHERWORKER / CLOTHIER,Spellweave Lining,2 Gold,"1/quest at the start of a combat scene, you gain Resistance to all damage from spells until the end of the scene.",,,,,,,,,,,
 LEATHERWORKER / CLOTHIER,Spidersilk Boots,2 Gold,You are immune to the IMMOBILIZED condition from other characters this quest.,,,,,,,,,,,
@@ -106,16 +110,16 @@ ENGINEER,Bouncing Betty Upgrade,1 Gold,"Flying characters trigger your traps, an
 ENGINEER,Combined Weapon,3 Gold,One of your weapons also gains another weapon type this quest.,,,,,,,,,,,
 ENGINEER,Composite Construction,2 Gold,One of your ranged weapons changes its type to Bow.,,,,,,,,,,,
 ENGINEER,Crawling Mines,1 Gold,"As a Minor Action, you can move one of your traps up to 2 spaces.",,,,,,,,,,,
-ENGINEER,Dynamite,2 Gold,"You gain the Dynamite support item this quest. [SUPPORT] Main | Minor, Consumable 1, Innate, Thrown 5. Select a space within the Thrown range. The dynamite explodes, creating a [Blast 2 area. All characters in the area must make an AGI save. Failure: [2d6 Force]. Success: Half damage. If this support item is destroyed, it immediately explodes, creating the Blast 2] area centered on the character carrying it.",,,,,,,,,,,
+ENGINEER,Dynamite,2 Gold,"You gain the Dynamite support item this quest. SUPPORT Main | Minor, Consumable 1, Innate, Thrown 5. Select a space within the Thrown range. The dynamite explodes, creating a [Blast 2] area. All characters in the area must make an AGI save. Failure: [2d6 Force]. Success: Half damage. If this support item is destroyed, it immediately explodes, creating the [Blast 2] area centered on the character carrying it.",,,,,,,,,,,
 ENGINEER,Echo Weapon,2 Gold,"This quest, one of your weapons gains the Aetheric tag.",,,,,,,,,,,
 ENGINEER,Environmental Integration,1 Gold,Gain an adaptation to an environmental hazard or factor this quest.,,,,,,,,,,,
 ENGINEER,Flight Systems,3 Gold,You can fly this quest.,,,,,,,,,,,
 ENGINEER,Gadget Goggles,2 Gold,You are immune to the BLINDED condition from other characters this quest.,,,,,,,,,,,
 ENGINEER,Grapple Gun,1 Gold,1/scene as a Minor Action you can fly up to 3 spaces.,,,,,,,,,,,
-ENGINEER,Hydraulic Suit,1 Gold,You count as +1 Size larger for the purposes of 5 GRAPPLE and 5 SHOVE.,,,,,,,,,,,
+ENGINEER,Hydraulic Suit,1 Gold,You count as +1 Size larger for the purposes of (5) GRAPPLE and (5) SHOVE.,,,,,,,,,,,
 ENGINEER,Jetpack,2 Gold,1/quest you can fly for a combat scene.,,,,,,,,,,,
 ENGINEER,Job Crystal,2 Gold,"Gain access to a specific job this quest, which must be equipped as normal. You an imprint into an additional job crystal this quest.",,,,,,,,,,,
-ENGINEER,Mech Suit,3 Gold,"1/quest you can activate a combat mech suit as a Free Action. Until the end of the scene, you gain the following benefits: +2 Size, 2+GRIT Temp HP, +2 Armor. You can 5 GRAPPLE and 5 SHOVE as a Minor Action. If you gain a WOUND or OVERSTRESS, you don’t have to make the WOUND/OVERSTRESS check unless it’s your 4th.",,,,,,,,,,,
+ENGINEER,Mech Suit,3 Gold,"1/quest you can activate a combat mech suit as a Free Action. Until the end of the scene, you gain the following benefits: +2 Size, 2+GRIT Temp HP, +2 Armor. You can (5) GRAPPLE and (5) SHOVE as a Minor Action. If you gain a WOUND or OVERSTRESS, you don’t have to make the WOUND/OVERSTRESS check unless it’s your 4th.",,,,,,,,,,,
 ENGINEER,Reflective Coating,2 Gold,Gain +2 A-Def this quest.,,,,,,,,,,,
 ENGINEER,Spyglass,1 Gold,Gain +2 Scope this quest.,,,,,,,,,,,
 ENGINEER,Tech Retrofit,2 Gold,One of your weapons changes its type to Magitech.,,,,,,,,,,,
@@ -127,7 +131,7 @@ TAVERN,Chicken Curry,1 Gold,Gain a +2 bonus to AGILITY checks and saves this que
 TAVERN,Dino Steak,1 Gold,Gain a +2 bonus to BULK checks and saves this quest.,,,,,,,,,,,
 TAVERN,Dragon Stout,1 Gold,Gain a +2 bonus to MAGIC checks and saves this quest.,,,,,,,,,,,
 TAVERN,Elf Cookies,2 Gold,Gain Save Target +2 this quest.,,,,,,,,,,,
-TAVERN,Feast,2 Gold,1/quest as a Free Action you can REFRESH.,,,,,,,,,,,
+TAVERN,Feast,2 Gold,1/quest as a Free Action you can (1) REFRESH.,,,,,,,,,,,
 TAVERN,Fruit Smoothie,2 Gold,"1/quest at the start of a combat scene, you become immune to Lunar damage until the end of the scene.",,,,,,,,,,,
 TAVERN,Gillyell,1 Gold,You gain an Aquatic Adaptation.,,,,,,,,,,,
 TAVERN,Ginger Tea,1 Gold,"1/quest when you would be SILENCED by another character, you aren’t.",,,,,,,,,,,
@@ -149,4 +153,4 @@ TAVERN,Rockfruit,1 Gold,"1/quest when you would be SUNDERED by another character
 TAVERN,Spicy Noodles,2 Gold,"1/quest at the start of a combat scene, you become immune to Astral damage until the end of the scene.",,,,,,,,,,,
 TAVERN,Transmutive Biscuts,1 Gold,Change your ancestry this quest.,,,,,,,,,,,
 TAVERN,Wildfruit,2 Gold,"Gain two random +2 bonuses to your BULK, AGILITY, MIND, or MAGIC checks/saves this quest. Randomly determine where each increase goes. Both increases can go into the same ability.",,,,,,,,,,,
-ALCHEMY,Ruptured Flask,1 Gold,"This support item is equipped for free. [SUPPORT] Light | Minor | Consumable 3, Innate | Your aetheric field becomes dangerously unstable. You gain an explosion die, a d6 that starts at 1. Whenever you take damage, increase the value of your explosion die by 1 to a maximum of 6. As a Free Action you can discharge this effect in a [Burst 2] area, dealing Force damage to all other characters in the area equal to your explosion die. You take half as much Force damage. This effect is then removed.",,,,,,,,,,,`
+ALCHEMY,Ruptured Flask,1 Gold,"This support item is equipped for free. SUPPORT Light | Minor | Consumable 3, Innate | Your aetheric field becomes dangerously unstable. You gain an explosion die, a d6 that starts at 1. Whenever you take damage, increase the value of your explosion die by 1 to a maximum of 6. As a Free Action you can discharge this effect in a [Burst 2] area, dealing Force damage to all other characters in the area equal to your explosion die. You take half as much Force damage. This effect is then removed.",,,,,,,,,,,`

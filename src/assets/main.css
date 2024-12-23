@@ -31,6 +31,14 @@
   font-weight: bold;
 }
 
+.phase-number-supplies {
+  clip-path: polygon(0 20%, 50% 0, 100% 20%, 100% 80%, 50% 100%, 0% 80%);
+  background-color: black;
+  color: white;
+  padding: 0 0.2rem;
+  font-weight: bold;
+}
+
 .item-name {
   font-size: 1.1rem;
   font-family: "Arvo", serif;

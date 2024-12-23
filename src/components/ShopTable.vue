@@ -7,6 +7,7 @@ import CheckmarkChecked from "@/components/icons/CheckmarkChecked.vue";
 import {shopItemsByShopType} from "@/shops/parse-shops.ts";
 import {getShopSelection} from "@/shops/generate-shop-selection.ts";
 import {computed} from "vue";
+import SuppliesDescription from "@/components/SuppliesDescription.vue";
 
 const props = defineProps<{
   selection: ShopItem[]
@@ -73,7 +74,7 @@ const randomizeShop = () => {
           <div v-else />
           <div class="shopitem-name" :class="{'pointer': settings.gmControls}" @click="toggleItemInSet(item.id)">{{ item.Name }}</div>
           <div class="shopitem-cost" :class="{'pointer': settings.gmControls}" @click="toggleItemInSet(item.id)"> {{ item.Cost }}</div>
-          <div class="shopitem-effect" :class="{'pointer': settings.gmControls}" @click="toggleItemInSet(item.id)"> {{ item.Effect }}</div>
+          <div class="shopitem-effect" :class="{'pointer': settings.gmControls}" @click="toggleItemInSet(item.id)"> <SuppliesDescription :input-text="item.Effect" /></div>
         </template>
       </template>
     </div>
@@ -84,9 +85,10 @@ const randomizeShop = () => {
 
 .shop-titlebar {
   padding: 0.75rem 0.5rem;
-  background-color: #253db3;
+  background-color: #242e62;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .shop-name {
@@ -111,16 +113,17 @@ const randomizeShop = () => {
 
 .shop-table {
   display: grid;
-  grid-template-columns: 20px 3fr 1fr 12fr;
+  grid-template-columns: 20px 1fr 55px 4fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
 
 .first-row {
-  background-color: #253db3;
+  background-color: #242e62;
   font-family: "Arvo", serif;
   font-weight: 400;
   font-style: normal;
+  color: white;
 }
 
 .shopitem-controlls {
@@ -131,9 +134,12 @@ const randomizeShop = () => {
   font-family: "Arvo", serif;
   font-weight: 400;
   font-style: normal;
-  border-left: 4px solid #253db3;
+  border-left: 4px solid #242e62;
   padding-left: 0.25rem;
   padding-top: 0.25rem;
+
+  background-color: white;
+  color: #242e62;
 }
 
 .shopitem-cost {
@@ -143,13 +149,25 @@ const randomizeShop = () => {
   font-style: normal;
   font-variant: small-caps;
   padding-top: 0.25rem;
+
+  background-color: white;
+  color: black;
 }
 .shopitem-effect {
   padding-top: 0.25rem;
 
+  background-color: white;
+  color: black;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+:deep(.supplies-pill) {
+  background-color: black;
+  color: white;
+  padding: 0 0.5rem;
+  border-radius: 100px;
 }
 </style>
