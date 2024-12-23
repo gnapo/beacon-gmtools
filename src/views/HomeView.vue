@@ -11,6 +11,12 @@
       <p>
         This is not an official Beacon product. It is a third-party work, and it is not affiliated with Pirate Gonzalez Games.
       </p>
+      <h2>Usage</h2>
+      <p>
+        You can enable GM controls in the option menu, this allows you to specify the available selection.
+        If you want your players to see a specific selection of loot boxes or shop items, you need to send them the link
+        that is copied to your clipboard via the button.
+      </p>
       <h2>Feedback</h2>
       <p>Feel free to open an issue on the <a href="https://github.com/gnapo/beacon-gmtools/issues">github page</a>.</p>
     </div>
