@@ -7,15 +7,17 @@ import {
   alchemyShopInfo,
   blacksmithShopInfo, dojoShopInfo, engineerShopInfo,
   generalShopInfo, getInitialTechniqueSelection, getSelectionForAllSuppliesShops,
-  leatherworkerShopInfo, magicShopInfo, tavernShopInfo
+  leatherworkerShopInfo, magicShopInfo, tavernShopInfo, validSupplyIds, validTechniqueIds
 } from "@/shops/generate-shop-selection.ts";
 import {settings} from "@/settings/settings.ts";
 import {useClipboard} from "@vueuse/core";
 import TechniqueShop from "@/components/TechniqueShop.vue";
+import {useRoute} from "vue-router";
+
+const route = useRoute()
 
 const currentSuppliesSelection = ref(getSelectionForAllSuppliesShops())
 const currentTechniquesSelection = ref(getInitialTechniqueSelection())
-
 
 const {copy} = useClipboard()
 
@@ -26,11 +28,22 @@ const rerollAll = () => {
 
 const copyToClipboardText = ref('Link these shops 📋')
 const copyCurrentItemsToClipboard = () => {
-  console.log('not implemented yet ¯\\_(ツ)_/¯')
-  copyToClipboardText.value = "not implemented yet ¯\\_(ツ)_/¯"
+  const supplies = Array.from(currentSuppliesSelection.value).join(',')
+  const techniques = Array.from(currentTechniquesSelection.value).join(',')
+  copy( window.location.origin + window.location.pathname+'?selection='+btoa(supplies+';'+techniques))
+  copyToClipboardText.value = "copied to clipboard ✔️"
   setTimeout(() => {
     copyToClipboardText.value = 'Link these shops 📋'
   }, 2000)
+}
+if (route.query.selection) {
+  const params = atob(route.query.selection as string).split(';')
+  const supplies = params[0].split(',').map(i => parseInt(i))
+  const techniques = params[1].split(',').map(i => parseInt(i))
+  if (validSupplyIds(supplies) && validTechniqueIds(techniques)) {
+    currentSuppliesSelection.value = new Set(supplies)
+    currentTechniquesSelection.value = new Set(techniques)
+  }
 }
 </script>
 

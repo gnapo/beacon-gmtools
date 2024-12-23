@@ -19,7 +19,7 @@ const sanitizeShopItem = (input: ShopItemRaw): ShopItem => {
   }
 }
 
-const allShopItems: ShopItem[] = (shopParseResult.data as ShopItemRaw[]).map((i) => sanitizeShopItem(i))
+export const allShopItems: ShopItem[] = (shopParseResult.data as ShopItemRaw[]).map((i) => sanitizeShopItem(i))
 
 export const allGeneral = allShopItems.filter((i) => i.Source === 'general store')
 export const allAlchemy = allShopItems.filter((i) => i.Source === 'alchemy')

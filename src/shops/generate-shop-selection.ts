@@ -1,7 +1,15 @@
 import type {ShopInfo, ShopItem, ShopType} from "@/shops/types.ts";
-import {allAlchemy, allBlacksmith, allEngineer, allGeneral, allLeatherworker, allTavern} from "@/shops/parse-shops.ts";
+import {
+  allAlchemy,
+  allBlacksmith,
+  allEngineer,
+  allGeneral,
+  allLeatherworker,
+  allShopItems,
+  allTavern
+} from "@/shops/parse-shops.ts";
 import type {Loot} from "@/loot/types.ts";
-import {allSkills, allSpells} from "@/loot/parse-items.ts";
+import {allItems, allSkills, allSpells} from "@/loot/parse-items.ts";
 
 export const generalShopInfo: ShopInfo = {
   name: 'GENERAL STORE',
@@ -118,4 +126,12 @@ export const getInitialTechniqueSelection = (): Set<number> => {
     ...getTechniqueSelection(allSkills),
     ...getTechniqueSelection(allSpells)
   ])
+}
+
+export const validSupplyIds = (ids: number[]): boolean => {
+  return ids.every((id) => 0 <= id && id < allShopItems.length)
+}
+
+export const validTechniqueIds = (ids: number[]): boolean => {
+  return ids.every(n => {return 0 <= n && n < allItems.length})
 }
