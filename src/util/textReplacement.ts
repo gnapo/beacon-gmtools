@@ -31,7 +31,7 @@ export const putLinebreaksOnLists = {
 
 
 export const replaceBoldText = {
-  pattern: /(On (Hit|Crit|Release|Channel):|Trigger:|Effect:|resistance to (that damage|Astral and Lunar|all damage|any damage from the attack)|resistances?|Discord|Unbreakable|immune|(difficulet|dangerous) terrain|(M|m)inor Action:|Summons?|hard cover|Armor|Stress|\d Stress|Enchantments?|bonus|Physical|Astral|Lunar|free action|critical hit|low visibility|Reroll Table|(Short )?Rests?|1\/turn|1\/round|Blast|Burst|Close Blast|Line|shift .|reactions?|Failure:|Success:|flight|Traps?|concentration save|Any.*:|Aquatic Adaptation|climb(ing)?|teleport|limit break|Reliable)/g,
+  pattern: /(On (Hit|Crit|Release|Channel):|Trigger:|Effect:|resistance to (that damage|Astral and Lunar|all damage|any damage from the attack)|resistances?|Discord|Unbreakable|immune|(difficulet|dangerous) terrain|(M|m)inor Action:|Summons?|hard cover|Armor|Stress|\d Stress|Enchantments?|bonus|Physical|Astral|Lunar|free action|critical hits?|low visibility|Reroll Table|(Short )?Rests?|1\/turn|1\/round|Blast|Burst|Close Blast|Line|shift .|reactions?|Failure:|Success:|flight|Traps?|concentration save|Any.*:|Aquatic Adaptation|climb(ing)?|teleport|limit break|Reliable)/g,
   replacer: (match: string, group: string) => {
     return `<span class="bold">${group}</span>`
   }

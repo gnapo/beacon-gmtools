@@ -2,11 +2,11 @@ import {ref} from "vue";
 
 
 interface Settings {
-  gmView: boolean
+  gmControls: boolean
   animations: boolean
 }
 
 export const settings = ref<Settings>({
-  gmView: false,
+  gmControls: false,
   animations: true
 })

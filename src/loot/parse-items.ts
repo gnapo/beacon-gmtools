@@ -87,6 +87,6 @@ export const idsAreValid = (ids: number[]): boolean => {
   });
 }
 
-export const findLoot = (id: number): Loot | undefined => {
+export const findLootById = (id: number): Loot | undefined => {
   return allItems.filter(item => item.id === id)[0]
 }

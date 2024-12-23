@@ -15,7 +15,7 @@ const toggleMenu = () => {
 <template>
   <div class="options-menu" :class="{'opened': settingsOpen}">
     <div class="options">
-      <span> <input type="checkbox" v-model="settings.gmView" class="pointer"> <label class="pointer" @click="settings.gmView = !settings.gmView">GM view</label></span>
+      <span> <input type="checkbox" v-model="settings.gmControls" class="pointer"> <label class="pointer" @click="settings.gmControls = !settings.gmControls">GM controls</label></span>
       <span> <input type="checkbox" v-model="settings.animations" class="pointer"> <label class="pointer" @click="settings.animations = !settings.animations">Enable animations</label></span>
     </div>
   </div>
@@ -33,6 +33,7 @@ const toggleMenu = () => {
   top: 2rem;
   height: 44px;
   width: 44px;
+  cursor: pointer;
 }
 .options-menu {
   position: absolute;

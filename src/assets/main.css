@@ -120,3 +120,11 @@
 .slightly-bigger {
   font-size: 1.07rem;
 }
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  button {
+    width: 150px;
+  }
+}

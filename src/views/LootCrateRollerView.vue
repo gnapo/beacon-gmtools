@@ -19,7 +19,7 @@ import LootSelector from "@/components/LootSelector.vue";
 import {settings} from "@/settings/settings.ts";
 import {useRoute} from "vue-router";
 import {useClipboard} from "@vueuse/core";
-import {findLoot, idsAreValid} from "@/loot/parse-items.ts";
+import {findLootById, idsAreValid} from "@/loot/parse-items.ts";
 
 const lootCrates = ref(getLootCrates())
 const animations = ref(true)
@@ -113,9 +113,9 @@ const copyCurrentItemsToClipboard = () => {
 if (route.query.items) {
   const items = atob(route.query.items as string).split(',').map(i => parseInt(i))
   if (idsAreValid(items)) {
-    rerollSlot(1, undefined, findLoot(items[0]))
-    rerollSlot(2, undefined, findLoot(items[1]))
-    rerollSlot(3, undefined, findLoot(items[2]))
+    rerollSlot(1, undefined, findLootById(items[0]))
+    rerollSlot(2, undefined, findLootById(items[1]))
+    rerollSlot(3, undefined, findLootById(items[2]))
   } else {
     rerollAll()
   }
@@ -128,12 +128,12 @@ if (route.query.items) {
 <div class="container">
   <div class="buttons">
     <button @click="rerollAll">Reroll all!</button>
-    <button @click="copyCurrentItemsToClipboard" v-if="settings.gmView"> {{copyToClipboardText}} </button>
+    <button @click="copyCurrentItemsToClipboard" v-if="settings.gmControls"> {{copyToClipboardText}} </button>
   </div>
   <div class="item-grid">
-    <LootSelector v-model=lootCrates[0] v-if="settings.gmView"/>
-    <LootSelector v-model=lootCrates[1] v-if="settings.gmView"/>
-    <LootSelector v-model=lootCrates[2] v-if="settings.gmView"/>
+    <LootSelector v-model=lootCrates[0] v-if="settings.gmControls"/>
+    <LootSelector v-model=lootCrates[1] v-if="settings.gmControls"/>
+    <LootSelector v-model=lootCrates[2] v-if="settings.gmControls"/>
     <RerollOptions @reroll="handleReroll1" :current-rarity=lootCrates[0].Rarity />
     <RerollOptions @reroll="handleReroll2" :current-rarity=lootCrates[1].Rarity />
     <RerollOptions @reroll="handleReroll3" :current-rarity=lootCrates[2].Rarity />
@@ -161,11 +161,5 @@ if (route.query.items) {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2px 2rem;
 }
-.buttons {
-  display: flex;
-  gap: 1rem;
-  button {
-    width: 150px;
-  }
-}
+
 </style>
