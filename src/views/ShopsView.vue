@@ -23,7 +23,11 @@ const {copy} = useClipboard()
 
 const rerollAll = () => {
   currentSuppliesSelection.value = getSelectionForAllSuppliesShops()
-  console.log(Array.from(currentSuppliesSelection.value).join(','))
+  currentTechniquesSelection.value = getInitialTechniqueSelection()
+}
+const clearAll = () => {
+  currentSuppliesSelection.value = new Set([])
+  currentTechniquesSelection.value = new Set([])
 }
 
 const copyToClipboardText = ref('Link these shops 📋')
@@ -36,10 +40,18 @@ const copyCurrentItemsToClipboard = () => {
     copyToClipboardText.value = 'Link these shops 📋'
   }, 2000)
 }
+
+const parseNumberList = (numbers: string):number[] => {
+  if (numbers === '') {
+    return []
+  }
+  return numbers.split(',').map(number => parseInt(number))
+}
+
 if (route.query.selection) {
   const params = atob(route.query.selection as string).split(';')
-  const supplies = params[0].split(',').map(i => parseInt(i))
-  const techniques = params[1].split(',').map(i => parseInt(i))
+  const supplies = parseNumberList(params[0])
+  const techniques = parseNumberList(params[1])
   if (validSupplyIds(supplies) && validTechniqueIds(techniques)) {
     currentSuppliesSelection.value = new Set(supplies)
     currentTechniquesSelection.value = new Set(techniques)
@@ -51,6 +63,7 @@ if (route.query.selection) {
   <div class="shopPageContainer">
     <div class="buttons" v-if="settings.gmControls">
       <button @click="rerollAll">Reroll all shops!</button>
+      <button @click="clearAll">Clear all shops</button>
       <button @click="copyCurrentItemsToClipboard"> {{ copyToClipboardText }}</button>
     </div>
     <div class="suppliesShopsContainer">

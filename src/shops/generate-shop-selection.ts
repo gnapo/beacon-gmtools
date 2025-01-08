@@ -128,6 +128,8 @@ export const getInitialTechniqueSelection = (): Set<number> => {
   ])
 }
 
+
+
 export const validSupplyIds = (ids: number[]): boolean => {
   return ids.every((id) => 0 <= id && id < allShopItems.length)
 }
