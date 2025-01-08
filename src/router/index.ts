@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LootCrateView from "@/views/LootCrateView.vue";
 import ShopsView from "@/views/ShopsView.vue";
 import LootCrateRollerView from "@/views/LootCrateRollerView.vue";
+import AllLootView from '@/views/AllLootView.vue'
+import TypedLootView from '@/views/TypedLootView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +16,12 @@ const router = createRouter({
     {
       path: '/allloot',
       name: 'allloot',
-      component: LootCrateView,
+      component: AllLootView,
+    },
+    {
+      path: '/someloot',
+      name: 'someLoot',
+      component: TypedLootView,
     },
     {
       path: '/loot',
