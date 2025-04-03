@@ -53,6 +53,13 @@
   justify-content: flex-start;
   width: 450px;
 }
+
+@Media(max-width: 500px)
+{
+  .card-flexcol {
+    width: 90vw;
+  }
+}
 .flexrow {
   display: flex;
   flex-direction: row;
@@ -78,14 +85,14 @@
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   padding-bottom: 0.45rem;
-  width: 450px;
+  /*width: 450px;*/
 
 }
 
 .card-bot {
   color: black;
   padding-left: 0.25rem;
-  width: 450px;
+  /*width: 450px;*/
 
 }
 
