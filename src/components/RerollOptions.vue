@@ -86,6 +86,11 @@ select {
 
   box-shadow: 5px 5px 24px 1px rgba(0,0,0,0.27);
 }
+@media (max-width: 500px) {
+  .drawer {
+    width: 90vw;
+  }
+}
 .cost-display {
   grid-area: cost-display;
   display: flex;
