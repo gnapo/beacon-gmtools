@@ -101,6 +101,12 @@ if (route.query.selection) {
   gap: 1rem;
 }
 
+@media (max-width: 1400px) {
+  .suppliesShopsContainer {
+    grid-template-columns: 1fr
+  }
+}
+
 .techniqueShopsContainer {
   display: flex;
   flex-direction: column;

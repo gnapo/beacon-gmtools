@@ -116,6 +116,7 @@ const getCostByRarity = (rarity: Rarity): string => {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 .technique-item {
   display: flex;

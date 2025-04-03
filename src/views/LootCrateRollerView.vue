@@ -130,16 +130,16 @@ if (route.query.items) {
     <button @click="rerollAll">Reroll all!</button>
     <button @click="copyCurrentItemsToClipboard" v-if="settings.gmControls"> {{copyToClipboardText}} </button>
   </div>
-  <div class="item-grid">
-    <LootSelector v-model=lootCrates[0] v-if="settings.gmControls"/>
-    <LootSelector v-model=lootCrates[1] v-if="settings.gmControls"/>
-    <LootSelector v-model=lootCrates[2] v-if="settings.gmControls"/>
-    <RerollOptions @reroll="handleReroll1" :current-rarity=lootCrates[0].Rarity />
-    <RerollOptions @reroll="handleReroll2" :current-rarity=lootCrates[1].Rarity />
-    <RerollOptions @reroll="handleReroll3" :current-rarity=lootCrates[2].Rarity />
-    <LootObject :item=lootCrates[0] :display-rarity=true :shaking=shaking[0] :snapping=snapping[0] />
-    <LootObject :item=lootCrates[1] :display-rarity=true :shaking=shaking[1] :snapping=snapping[1] />
-    <LootObject :item=lootCrates[2] :display-rarity=true :shaking=shaking[2] :snapping=snapping[2] />
+  <div class="item-grid" :class="{'show-gm': settings.gmControls}">
+    <LootSelector v-model=lootCrates[0] v-if="settings.gmControls" class="item1"/>
+    <LootSelector v-model=lootCrates[1] v-if="settings.gmControls" class="item2"/>
+    <LootSelector v-model=lootCrates[2] v-if="settings.gmControls" class="item3"/>
+    <RerollOptions @reroll="handleReroll1" :current-rarity=lootCrates[0].Rarity class="item4"/>
+    <RerollOptions @reroll="handleReroll2" :current-rarity=lootCrates[1].Rarity class="item5"/>
+    <RerollOptions @reroll="handleReroll3" :current-rarity=lootCrates[2].Rarity class="item6"/>
+    <LootObject :item=lootCrates[0] :display-rarity=true :shaking=shaking[0] :snapping=snapping[0] class="item7"/>
+    <LootObject :item=lootCrates[1] :display-rarity=true :shaking=shaking[1] :snapping=snapping[1] class="item8"/>
+    <LootObject :item=lootCrates[2] :display-rarity=true :shaking=shaking[2] :snapping=snapping[2] class="item9"/>
   </div>
 </div>
 </template>
@@ -159,7 +159,51 @@ if (route.query.items) {
 .item-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+                "item1 item2 item3"
+                "item4 item5 item6"
+                "item7 item8 item9";
   gap: 2px 2rem;
 }
 
+.item1 { grid-area: item1; }
+.item2 { grid-area: item2; }
+.item3 { grid-area: item3; }
+.item4 { grid-area: item4; }
+.item5 { grid-area: item5; }
+.item6 { grid-area: item6; }
+.item7 { grid-area: item7; }
+.item8 { grid-area: item8; }
+.item9 { grid-area: item9; }
+
+
+
+@media (max-width: 1400px) {
+  .item-grid.show-gm {
+    grid-template-areas:
+                    "item1"
+                    "item4"
+                    "item7"
+                    "item2"
+                    "item5"
+                    "item8"
+                    "item3"
+                    "item6"
+                    "item9";
+    grid-template-columns: 1fr;
+  }
+  .item-grid {
+    grid-template-areas:
+                    "item4"
+                    "item7"
+                    "item5"
+                    "item8"
+                    "item6"
+                    "item9";
+    grid-template-columns: 1fr;
+  }
+  .item7, .item8 {
+    margin-bottom: 4rem;
+  }
+}
 </style>
